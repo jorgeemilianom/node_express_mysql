@@ -1,0 +1,25 @@
+{
+  "name": "nodejs_express_mysql",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "nodejs_express_mysql",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "mysql",
+    "express",
+    "nodejs",
+    "restapi"
+  ],
+  "author": "Jorge Emiliano Maldonado",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.5.2"
+  }
+}
