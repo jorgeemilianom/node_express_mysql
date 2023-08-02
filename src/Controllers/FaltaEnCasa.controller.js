@@ -7,24 +7,24 @@ export default class FaltaEnCasaController {
     static getAll(req, res) {
         try {
             const Repository = new ProductsRepository();
-        Repository.getAll()
-            .then(dbRes => {
-                res.status(200).send({
-                    message: 'Get all products',
-                    data: dbRes,
-                }); // Enviar solo los datos de la tabla
-            })
-            .catch(err => {
-                // Manejo de errores aquí si es necesario
-                console.error(err);
-                res.status(500).send({
-                    message: "Error interno del servidor"
+            Repository.getAll()
+                .then(dbRes => {
+                    res.status(200).send({
+                        message: 'Get all products',
+                        data: dbRes,
+                    }); // Enviar solo los datos de la tabla
+                })
+                .catch(err => {
+                    // Manejo de errores aquí si es necesario
+                    console.error(err);
+                    res.status(500).send({
+                        message: "Error interno del servidor"
+                    });
                 });
-            });
         } catch (error) {
             console.log(error);
         }
-        
+
     }
 
     static getById(req, res) {
@@ -55,11 +55,26 @@ export default class FaltaEnCasaController {
 
     static addProduct(req, res) {
         try {
-            console.log(req);
-            // const Repository = new ProductsRepository();
-            // Repository.getAll()
+            const Repository = new ProductsRepository();
+            Repository.addProduct(req.body.name)
+                .then(dbRes => {
+                    res.status(200).send({
+                        message: 'Add product successfully',
+                        data: dbRes,
+                    });
+                })
+                .catch(err => {
+                    console.error(err);
+                    res.status(500).send({
+                        message: "Error interno del servidor"
+                    });
+                });
         } catch (error) {
-
+            // Manejo de errores aquí si es necesario
+            console.error(err);
+            res.status(500).send({
+                message: "Error interno del servidor"
+            });
         }
     }
 }
