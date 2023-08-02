@@ -4,12 +4,15 @@ import FaltaEnCasaController from "../Controllers/FaltaEnCasa.controller.js";
 // Crea el enrutador de Express
 const router = express.Router();
 
-// Define las rutas utilizando el enrutador
+// Get
 router.get("/Products", FaltaEnCasaController.getAll);
 router.get("/Products/:id", FaltaEnCasaController.getById);
-
+// Post
 router.post("/Products", FaltaEnCasaController.addProduct);
-
+// Put
+router.put("/Products/:id", FaltaEnCasaController.updateProduct);
+// Delete
+router.delete("/Products/:id", FaltaEnCasaController.deleteProduct);
 
 // Exporta el enrutador
 export default router;
